@@ -1,0 +1,19 @@
+class Vehículo:
+    def __init__(self, marca, combustible):
+        self.marca = marca
+        self.combustible = combustible
+
+    def encender(self):
+        print("El vehículo se ha encendido.")
+
+    def arrancar(self):
+        print("El vehículo ha arrancado.")
+
+    def __str__(self):
+        return f"Marca: {self.marca}, Combustible: {self.combustible}"
+
+# Instanciar la clase
+vehiculo1 = Vehículo("Toyota", "Gasolina")
+
+# Usar el método __str__ para imprimir la marca y el combustible
+print(vehiculo1)
