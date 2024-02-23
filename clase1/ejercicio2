@@ -1,0 +1,42 @@
+class Vehículo:
+    def __init__(self, marca, combustible):
+        self.marca = marca
+        self.combustible = combustible
+
+    def encender(self):
+        print("El vehículo se ha encendido.")
+
+    def arrancar(self):
+        print("El vehículo ha arrancado.")
+
+    def __str__(self):
+        return f"Marca: {self.marca}, Combustible: {self.combustible}"
+
+
+class Moto(Vehículo):
+    def __init__(self, marca, combustible, cilindraje):
+        super().__init__(marca, combustible)
+        self.cilindraje = cilindraje
+
+    def __str__(self):
+        return f"Moto - Marca: {self.marca}, Combustible: {self.combustible}, Cilindraje: {self.cilindraje}"
+
+
+class Carro(Vehículo):
+    def __init__(self, marca, combustible, num_puertas):
+        super().__init__(marca, combustible)
+        self.num_puertas = num_puertas
+
+    def __str__(self):
+        return f"Carro - Marca: {self.marca}, Combustible: {self.combustible}, Número de puertas: {self.num_puertas}"
+
+
+# Instanciar la clase Moto
+moto1 = Moto("BMW", "Electrica", "1000cc")
+
+# Instanciar la clase Carro
+carro1 = Carro("BMW", "Electrico", 2)
+
+# Imprimir los objetos instanciados
+print(moto1)
+print(carro1)
