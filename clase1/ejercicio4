@@ -1,0 +1,51 @@
+class Vehículo:
+    def __init__(self, marca, carga, tipo, nivel_carga):
+        self.marca = marca
+        self.carga = carga
+        self.tipo = tipo
+        self.nivel_carga = nivel_carga
+
+    def encender(self):
+        if self.nivel_carga < 0.1:  # 10%
+            print("Advertencia: Nivel de carga es muy bajo. Necesita ir a recargar.")
+        else:
+            print("El vehículo se ha encendido.")
+
+    def arrancar(self):
+        print("El vehículo ha arrancado.")
+
+    def __str__(self):
+        return f"Tipo: {self.tipo}, Marca: {self.marca}, Carga: {self.carga}, Nivel de carga: {self.nivel_carga}"
+
+
+class Moto(Vehículo):
+    def __init__(self, marca, carga, cilindraje, nivel_carga):
+        super().__init__(marca, carga, "Moto", nivel_carga)
+        self.cilindraje = cilindraje
+
+    def __str__(self):
+        return super().__str__() + f", Cilindraje: {self.cilindraje}"
+
+
+class Carro(Vehículo):
+    def __init__(self, marca, carga, num_puertas, nivel_carga):
+        super().__init__(marca, carga, "Carro", nivel_carga)
+        self.num_puertas = num_puertas
+
+    def __str__(self):
+        return super().__str__() + f", Número de puertas: {self.num_puertas}"
+
+
+# Instanciar la clase Moto
+moto1 = Moto("BMW", "Electrico", "1000cc", 0.07)  # Nivel de combustible bajo para probar la advertencia
+
+# Instanciar la clase Carro
+carro1 = Carro("BMW", "Electrico", 2, 0.4)  # Nivel de combustible suficiente
+
+# Probar el método encender
+moto1.encender()  # Debería mostrar la advertencia
+carro1.encender()  # Debería encender el vehículo sin advertencia
+
+# Imprimir los objetos instanciados
+print(moto1)
+print(carro1)

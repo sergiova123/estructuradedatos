@@ -13,7 +13,7 @@ class Vehículo:
         return f"Marca: {self.marca}, Combustible: {self.combustible}"
 
 # Instanciar la clase
-vehiculo1 = Vehículo("Toyota", "Gasolina")
+vehiculo1 = Vehículo("BMW", "Electrico")
 
 # Usar el método __str__ para imprimir la marca y el combustible
 print(vehiculo1)
