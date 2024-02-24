@@ -1,0 +1,69 @@
+class Vehículo:
+    def __init__(self, marca, combustible, tipo, nivel_combustible):
+        self.marca = marca
+        self.combustible = combustible
+        self.tipo = tipo
+        self.nivel_combustible = nivel_combustible
+
+    def encender(self):
+        if self.nivel_combustible < 0.1:  # 10%
+            print("Advertencia: Nivel de combustible muy bajo. Necesita ir a la gasolinera.")
+        else:
+            print("El vehículo se ha encendido.")
+
+    def marchar(self, distancia):
+        consumo_por_kilometro = 0.05  # Por ejemplo, supongamos un consumo de 0.05 galones por kilómetro
+        consumo_total = consumo_por_kilometro * distancia
+        if self.nivel_combustible - consumo_total <= 0:
+            print("El vehículo se ha detenido debido a falta de combustible.")
+            self.nivel_combustible = 0
+        else:
+            self.nivel_combustible -= consumo_total
+            print(f"El vehículo ha recorrido {distancia} kilómetros. Nivel de combustible restante: {self.nivel_combustible:.2f} galones.")
+
+            if self.nivel_combustible < 0.1:  # 10%
+                print("Advertencia: Nivel de combustible muy bajo. Necesita ir a la gasolinera.")
+
+    def __str__(self):
+        return f"Tipo: {self.tipo}, Marca: {self.marca}, Combustible: {self.combustible}, Nivel de combustible: {self.nivel_combustible:.2f}"
+
+
+class Moto(Vehículo):
+    def __init__(self, marca, combustible, cilindraje, nivel_combustible):
+        super().__init__(marca, combustible, "Moto", nivel_combustible)
+        self.cilindraje = cilindraje
+
+    def __str__(self):
+        return super().__str__() + f", Cilindraje: {self.cilindraje}"
+
+
+class Carro(Vehículo):
+    def __init__(self, marca, combustible, num_puertas, nivel_combustible):
+        super().__init__(marca, combustible, "Carro", nivel_combustible)
+        self.num_puertas = num_puertas
+
+    def __str__(self):
+        return super().__str__() + f", Número de puertas: {self.num_puertas}"
+
+
+# Instanciar la clase Moto
+moto1 = Moto("Yamaha", "Gasolina", "250cc", 0.5)  # Nivel de combustible inicial
+
+# Instanciar la clase Carro
+carro1 = Carro("Toyota", "Gasolina", 4, 0.7)  # Nivel de combustible inicial
+
+# Probar el método marchar
+moto1.marchar(20)  # Suponiendo que la moto recorre 20 km
+carro1.marchar(50)  # Suponiendo que el carro recorre 50 km
+
+# Probar advertencia por bajo nivel de combustible
+moto1.marchar(300)  # Suponiendo que la moto recorre 300 km (consumiendo mucho combustible)
+carro1.marchar(100)  # Suponiendo que el carro recorre 100 km (consumiendo menos combustible)
+
+# Probar detención por falta de combustible
+moto1.marchar(100)  # Suponiendo que la moto recorre 100 km más (agotando el combustible)
+carro1.marchar(200)  # Suponiendo que el carro recorre 200 km más (agotando el combustible)
+
+# Imprimir los objetos instanciados
+print(moto1)
+print(carro1)
