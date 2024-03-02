@@ -1,0 +1,12 @@
+def fibonacci(n):
+    fibonacci_series = [0, 2]
+    
+    for i in range(2, n):
+        next_term = fibonacci_series[i-1] + fibonacci_series[i-2]
+        fibonacci_series.append(next_term)
+    
+    return fibonacci_series
+
+numero_de_terminos = 6
+resultado = fibonacci(numero_de_terminos)
+print("Serie de Fibonacci:", resultado)
