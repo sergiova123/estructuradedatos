@@ -45,13 +45,32 @@ class Cola:
         return pruebas
     
     def ver_listado(self):
-        pass
+        elementos = []
+        if self.esta_vacia():
+            return None
+        else:
+            current = self.primero
+            while current:
+                elementos.append(current.valor)
+                current = current.siguiente
+            return elementos
 
     def ver_primero(self):
-        pass
+        if self.esta_vacia():
+            print("La cola está vacía")
+        else:
+            print("Primer elemento:", self.primero.valor)
 
     def ver_ultimo(self):
-        pass
+        if self.esta_vacia():
+            print("La cola está vacía")
+        else:
+            print("Último elemento:", self.ultimo.valor)
 
     def contar(self) -> int:
-        return 0
+        count = 0
+        current = self.primero
+        while current:
+            count += 1
+            current = current.siguiente
+        return count

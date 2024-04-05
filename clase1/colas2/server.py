@@ -21,7 +21,7 @@ def estado():
 def encolar(vehiculo: Vehiculo): 
     print(vehiculo)
     #vehiculo = Vehiculo(vehiculo['tipo'], vehiculo['matricula'], vehiculo['color'], vehiculo['marca'], vehiculo['kilometraje'])
-    #cola.encolar(vehiculo)
+    cola.encolar(vehiculo)
     return vehiculo
 
 @app.get("/desencolar")
